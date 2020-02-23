@@ -1,6 +1,6 @@
 /**
  * Sample React Native App
- * https://github.com/facebook/react-native
+ * https://github.com/rudalson/reactnativeMiseWeather
  *
  * @format
  * @flow
@@ -38,8 +38,6 @@ class App extends Component {
   writeTitle = () => {
     this.setState({
       title: '손흥민 부상 심각',
-    },function() {
-      alert('그래서 큰일입니다')
     });
   };
 
@@ -51,13 +49,17 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.hello}>Hello World</Text>
-        <MyImage type="one" />
-
-        <Text>{this.state.title}</Text>
-        <Button title={'제목 출력'} onPress={this.writeTitle} />
-        <Button title={'키워드 출력'} onPress={this.writeKeyword} />
+      <View>
+        <View style={styles.container}>
+          <MyImage type="one" />
+          <View style={{flexDirection: 'column'}}>
+            <Text>{this.state.title}</Text>
+          </View>
+        </View>
+        <View style={{margin: 10, flexDirection: 'row'}}>
+          <Button title={'제목 출력'} onPress={this.writeTitle} />
+          <Button title={'키워드 출력'} onPress={this.writeKeyword} />
+        </View>
       </View>
     );
   }
@@ -65,12 +67,9 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  hello: {
-    color: 'red',
+    marginTop: 50,
+    marginLeft: 20,
+    flexDirection: 'row',
   },
 });
 
